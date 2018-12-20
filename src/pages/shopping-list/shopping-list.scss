@@ -1,0 +1,11 @@
+// page-shopping-list {
+
+// }
+
+.item-complete {
+  text-decoration: line-through;
+}
+
+.item-favourite::after {
+  content: "*";
+}
