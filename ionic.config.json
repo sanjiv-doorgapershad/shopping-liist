@@ -1,8 +1,7 @@
 {
-  "name": "Shopping-List",
-  "app_id": "shoppinglist",
-  "type": "ionic-angular",
+  "name": "shopping-list",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "angular"
 }

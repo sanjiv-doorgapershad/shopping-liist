@@ -1,53 +1,29 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { IonicStorageModule } from '@ionic/storage';
-import { MyApp } from './app.component';
+import { RouteReuseStrategy } from '@angular/router';
 
-import { AboutPage } from '../pages/about/about';
-import { TabsPage } from '../pages/tabs/tabs';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { SocialSharing } from '@ionic-native/social-sharing';
-import { Deeplinks } from '@ionic-native/deeplinks';
-
-import { ShoppingListPage } from '../pages/shopping-list/shopping-list';
-import { FavouriteShoppingItemsPage } from '../pages/favourite-shopping-items/favourite-shopping-items';
-import { ShoppingListService } from '../services/shopping-list.service';
-import { FavouritesListService } from '../services/favourites-list.service';
-import { SocialSharingService } from '../services/social-sharing.service';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ModelsModule } from './models/models.module';
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    AboutPage,
-    TabsPage,
-    ShoppingListPage,
-    FavouriteShoppingItemsPage
-  ],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    AboutPage,
-    TabsPage,
-    ShoppingListPage,
-    FavouriteShoppingItemsPage
+    BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    ModelsModule,
+    ServicesModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    SocialSharing,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    ShoppingListService,
-    FavouritesListService,
-    SocialSharingService,
-    Deeplinks
-  ]
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

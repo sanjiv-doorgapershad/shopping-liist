@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Favourite Items
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-item *ngFor="let item of favouriteItemsService.get()">
+        <ion-label>{{ item.name }}</ion-label>
+        <ion-button *ngIf="item.isFavourite" (click)="favouriteItemsService.remove(item)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+        <ion-button (click)="addToShoppingList(item)">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+</ion-content>
