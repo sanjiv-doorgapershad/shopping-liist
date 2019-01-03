@@ -40,18 +40,24 @@ export class ShoppingListPage implements OnInit {
     // Clean up
     this.newItem.name = '';
     this.favouritesFiltered.length = 0;
+
+    this.slidingList.closeSlidingItems();
+  }
+
+  removeItem(item: ShoppingItem, slidingItem: IonItemSliding) {
+    slidingItem.close();
+    this.shoppingListService.remove(item);
+    this.presentToast(`Removed ${item.name}.`);
   }
 
   addFavourite(item: ShoppingItem, slidingItem: IonItemSliding) {
-
-    this.favouriteItemsService.add(item);
     slidingItem.close();
+    this.favouriteItemsService.add(item);
     this.presentToast(`Added ${item.name} to favourites.`);
   }
 
   removeFavourite(item: ShoppingItem, slidingItem: IonItemSliding) {
-    // slidingItem.close();
-    this.slidingList.closeSlidingItems();
+    slidingItem.close();
     this.favouriteItemsService.remove(item);
     this.presentToast(`Removed ${item.name} from favourites.`);
   }

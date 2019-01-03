@@ -28,7 +28,7 @@
         <ion-button *ngIf="!item.isFavourite" (click)="addFavourite(item, slidingItem)">
             <ion-icon slot="icon-only" name="star-outline"></ion-icon>
         </ion-button>
-        <ion-button (click)="shoppingListService.remove(item)">
+        <ion-button (click)="removeItem(item, slidingItem)">
             <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-button>
       </ion-item-options>

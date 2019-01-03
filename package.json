@@ -9,7 +9,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "emulator": "ionic cordova run android -l",
+    "release": "ionic cordova build android --prod --release",
+    "sign": "jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../../shopping-list-release-key.keystore ./platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk alias_name",
+    "optimise": "zipalign -v 4 ./platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ShoppingList.apk"
   },
   "private": true,
   "dependencies": {
