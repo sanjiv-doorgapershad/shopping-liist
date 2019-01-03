@@ -75,6 +75,11 @@ export class ShoppingListPage implements OnInit {
     }
   }
 
+  reorderItems(ev) {
+    this.shoppingListService.reorderItems(ev.detail.from, ev.detail.to);
+    ev.detail.complete();
+  }
+
   shareShoppingList() {
     // this.sharingService.share(JSON.stringify(this.shoppingListService.get()));
   }

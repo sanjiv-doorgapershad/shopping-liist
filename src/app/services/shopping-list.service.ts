@@ -44,9 +44,11 @@ export class ShoppingListService {
     this.save();
   }
 
-  reorderItems(indexes) {
-    // this.shoppingList = reorderArray(this.shoppingList, indexes);
-    // this.save();
+  reorderItems(indexFrom, indexTo) {
+    const element = this.shoppingList[indexFrom];
+    this.shoppingList.splice(indexFrom, 1);
+    this.shoppingList.splice(indexTo, 0, element);
+    this.save();
   }
 
   private save() {
