@@ -25,6 +25,7 @@ export class ShoppingListPage implements OnInit {
 
   ngOnInit() {
     this.newItem = new ShoppingItem();
+    this.favouritesFiltered = new Array<ShoppingItem>();
   }
 
   addItem(item: ShoppingItem) {

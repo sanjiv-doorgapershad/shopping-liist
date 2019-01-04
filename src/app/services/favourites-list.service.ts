@@ -11,6 +11,7 @@ export class FavouritesListService {
   private favouritesList: ShoppingItem[];
 
   constructor(private storage: Storage) {
+
     this.storage.get(this.key_FavouritesList).then((items: ShoppingItem[]) => {
       this.favouritesList = items;
 
