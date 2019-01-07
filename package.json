@@ -10,10 +10,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "emulator": "ionic cordova run android -l",
-    "release": "ionic cordova build android --prod --release",
-    "sign": "jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../../shopping-list-release-key.keystore ./platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk alias_name",
-    "optimise": "zipalign -v 4 ./platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ShoppingList.apk"
+    "emulator-android": "ionic cordova run android -l",
+    "emulator-ios": "ionic cordova run ios -l",
+    "release-android": "ionic cordova build android --prod --release",
+    "release-ios": "ionic cordova build ios --prod",
+    "sign-android": "jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../../shopping-list-release-key.keystore ./platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk alias_name",
+    "optimise-android": "zipalign -v 4 ./platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ShoppingList.apk"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +32,7 @@
     "@ionic/angular": "4.0.0-rc.0",
     "@ionic/storage": "^2.2.0",
     "cordova-android": "7.1.4",
+    "cordova-ios": "4.5.5",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
     "cordova-plugin-ionic-webview": "^2.3.1",
@@ -81,7 +84,8 @@
       "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
