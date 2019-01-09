@@ -65,6 +65,28 @@ describe('ShoppingListService', () => {
     expect(items.length).toBe(itemCount - 1);
   }));
 
+  it('should not remove any item not in list', fakeAsync(() => {
+    const service: ShoppingListService = TestBed.get(ShoppingListService);
+
+    tick();
+
+    const item1 = new ShoppingItem();
+    item1.name = 'Bread';
+
+    const item2 = new ShoppingItem();
+    item2.name = 'Bread';
+
+    service.add(item1);
+    let items = service.get();
+    const itemCount = items.length;
+
+    service.remove(item2);
+    items = service.get();
+
+    expect(items.length).toBe(itemCount);
+  }));
+
+
   it('should clear the list', fakeAsync(() => {
     const service: ShoppingListService = TestBed.get(ShoppingListService);
 

@@ -16,7 +16,7 @@ export class FavouritesListService {
       this.favouritesList = items;
 
       if (!this.favouritesList) {
-        this.favouritesList = new Array<ShoppingItem>();
+        this.init();
       }
     });
   }
@@ -44,5 +44,9 @@ export class FavouritesListService {
 
   private save() {
     this.storage.set(this.key_FavouritesList, this.favouritesList);
+  }
+
+  private init() {
+    this.favouritesList = new Array<ShoppingItem>();
   }
 }

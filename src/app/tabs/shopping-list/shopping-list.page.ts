@@ -42,7 +42,9 @@ export class ShoppingListPage implements OnInit {
     this.newItem.name = '';
     this.favouritesFiltered.length = 0;
 
-    this.slidingList.closeSlidingItems();
+    if (this.slidingList.closeSlidingItems) {
+      this.slidingList.closeSlidingItems();
+    }
   }
 
   removeItem(item: ShoppingItem, slidingItem: IonItemSliding) {
@@ -67,9 +69,14 @@ export class ShoppingListPage implements OnInit {
     const favItems = this.favouriteItemsService.get();
     const search = event.target.value;
 
-    if (search && search.trim() !== '') {
+    if (search && favItems && search.trim() !== '') {
+
       this.favouritesFiltered = favItems.filter((item) => {
-        return item.name.trim().includes(search.trim());
+        if (item.name) {
+          return item.name.trim().toLocaleLowerCase().includes(search.trim().toLocaleLowerCase());
+        } else {
+          return false;
+        }
       });
     } else {
       this.favouritesFiltered.length = 0;
