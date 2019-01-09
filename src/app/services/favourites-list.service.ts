@@ -11,11 +11,12 @@ export class FavouritesListService {
   private favouritesList: ShoppingItem[];
 
   constructor(private storage: Storage) {
+
     this.storage.get(this.key_FavouritesList).then((items: ShoppingItem[]) => {
       this.favouritesList = items;
 
       if (!this.favouritesList) {
-        this.favouritesList = new Array<ShoppingItem>();
+        this.init();
       }
     });
   }
@@ -43,5 +44,9 @@ export class FavouritesListService {
 
   private save() {
     this.storage.set(this.key_FavouritesList, this.favouritesList);
+  }
+
+  private init() {
+    this.favouritesList = new Array<ShoppingItem>();
   }
 }
