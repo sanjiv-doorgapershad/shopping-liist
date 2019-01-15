@@ -6,12 +6,12 @@ jobs:
         steps:
             - checkout
             - restore_cache:
-                key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+                key: AngularCircleCI-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
             - run: 
                 name: install-npm
                 command: npm install
             - save_cache:
-                key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+                key: AngularCircleCI-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
                 paths:
                     - "node_modules"
     test:
