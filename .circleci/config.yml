@@ -18,6 +18,7 @@ jobs:
         docker:
             - image: circleci/node:10-browsers
         steps:
+            - checkout
             - restore_cache:
                 key: AngularCircleCI-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
             - run: 
@@ -30,6 +31,7 @@ jobs:
         docker:
             - image: circleci/node:10-browsers
         steps:
+            - checkout
             - restore_cache:
                 key: AngularCircleCI-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
             - run: 
