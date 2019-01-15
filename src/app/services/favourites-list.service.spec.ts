@@ -5,7 +5,6 @@ import { FavouritesListService } from './favourites-list.service';
 import { ShoppingItem } from '../models/shopping-item';
 
 let favListService: FavouritesListService;
-let storageServiceSpy: jasmine.SpyObj<Storage>;
 
 const mockFavListData = new Array<ShoppingItem>();
 

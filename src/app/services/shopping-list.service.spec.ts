@@ -4,7 +4,7 @@ import { ShoppingListService } from './shopping-list.service';
 import { Storage } from '@ionic/storage';
 import { ShoppingItem } from '../models/shopping-item';
 
-let mockFavListData: ShoppingItem[];
+const mockFavListData = new Array<ShoppingItem>();
 
 
 describe('ShoppingListService', () => {
