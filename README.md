@@ -15,6 +15,12 @@ Developer Notes:
 - To test in browser:
     1. ionic serve
 
+- To prepare for android build:
+    1. npm run prepare-android
+
+- To prepare for ios build:
+    1. npm run prepare-ios
+
 - To build and deploy to android emulator:
     1. npm run emulator-android
 

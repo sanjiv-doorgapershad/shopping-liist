@@ -1,8 +1,25 @@
 version: 2
 jobs:
-  build:
+  validate:
     docker:
-      - image: circleci/ruby:2.4.1
+        - image: circleci/node:10-browsers
     steps:
-      - checkout
-      - run: echo "A first hello"
+        - checkout
+        - restore_cache:
+            key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+        - run: 
+            name: install-npm
+            command: npm install
+        - save_cache:
+            key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
+            paths:
+                - "./node_modules"
+        - run: 
+            name: test
+            command: npm run test-headless
+        - store_artifacts:
+            path: coverage
+            prefix: coverage
+        - run: 
+            name: lint
+            command: npm run lint
