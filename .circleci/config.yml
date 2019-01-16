@@ -48,7 +48,7 @@ jobs:
                 key: ionic-platform-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
             - run:
                 name: node
-                command: apt-get install nodejs
+                command: sudo apt-get install nodejs
             - run: 
                 name: cordova
                 command: sudo npm install -g ionic cordova
@@ -70,7 +70,7 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-        - prepare
+        #- prepare
         #- test:
         #    requires:
         #        - prepare
