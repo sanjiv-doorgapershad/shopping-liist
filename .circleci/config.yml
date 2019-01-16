@@ -42,6 +42,8 @@ jobs:
     android:
         docker:
             - image: circleci/android:api-26-node8-alpha
+        enviroment:
+            ANDROID_HOME: /opt/android/sdk
         steps:
             - checkout
             - restore_cache:
