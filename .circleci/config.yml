@@ -77,7 +77,6 @@ workflows:
         #- lint:
         #    requires:
         #        - prepare
-        - android:
-            requires: 
-                - prepare
+        - android
+            
       
