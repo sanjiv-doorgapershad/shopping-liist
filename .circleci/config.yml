@@ -48,7 +48,7 @@ jobs:
                 key: ionic-platform-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
             - run:
                 name: node
-                command: sudo apt-get install nodejs
+                command: sudo apt-get install -y nodejs
             - run: 
                 name: cordova
                 command: sudo npm install -g ionic cordova
