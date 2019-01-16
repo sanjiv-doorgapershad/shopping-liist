@@ -50,6 +50,9 @@ jobs:
                 name: cordova
                 command: sudo npm install -g ionic cordova
             - run:
+                name: platform
+                command: sudo ionic cordova platform add android
+            - run:
                 name: prepare
                 command: npm run prepare-android
             - save_cache:
