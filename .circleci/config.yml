@@ -67,6 +67,9 @@ jobs:
             - run:
                 name: build
                 command: sudo npm run release-android
+            - run:
+                name: cordova-build
+                command: sudo cordova build android --release
             - store_artifacts:
                 path: platforms/android/app/build/outputs/apk/release
 workflows:
