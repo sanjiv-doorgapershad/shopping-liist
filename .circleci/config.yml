@@ -41,7 +41,7 @@ jobs:
                 command: npm run lint
     android:
         docker:
-            - image: circleci/android:api-26-aplha
+            - image: circleci/android:api-26-alpha
         steps:
             - checkout
             - restore_cache:
