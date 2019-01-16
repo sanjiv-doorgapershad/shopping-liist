@@ -45,7 +45,9 @@ jobs:
         steps:
             - checkout
             - restore_cache:
-                key: ionic-platform-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+                keys: 
+                    - AngularCircleCI-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+                    - ionic-platform-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
             - run: 
                 name: cordova
                 command: sudo npm install -g ionic cordova
