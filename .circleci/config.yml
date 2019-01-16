@@ -14,6 +14,8 @@ jobs:
                 key: AngularCircleCI-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
                 paths:
                     - "node_modules"
+                    - "platforms"
+                    - "plugins"
     test:
         docker:
             - image: circleci/node:10-browsers
@@ -52,6 +54,10 @@ jobs:
                 command: npm run prepare-android
             - save_cache:
                 key: AngularCircleCI-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+                paths:
+                    - "node_modules"
+                    - "platforms"
+                    - "plugins"
             - run:
                 name: build
                 command: npm run release-android
