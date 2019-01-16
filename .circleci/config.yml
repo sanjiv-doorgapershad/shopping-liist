@@ -41,14 +41,11 @@ jobs:
                 command: npm run lint
     android:
         docker:
-            - image: circleci/android:api-26-alpha
+            - image: circleci/android:api-26-node8-alpha
         steps:
             - checkout
             - restore_cache:
                 key: ionic-platform-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
-            - run:
-                name: node
-                command: sudo apt-get install -y nodejs
             - run: 
                 name: cordova
                 command: sudo npm install -g ionic cordova
