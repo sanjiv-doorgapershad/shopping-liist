@@ -64,7 +64,7 @@ jobs:
                     - "plugins"
             - run:
                 name: build
-                command: npm run release-android
+                command: sudo npm run release-android
             - store_artifacts:
                 path: platforms/android/app/build/outputs/apk/release
 workflows:
